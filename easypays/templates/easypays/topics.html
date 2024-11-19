@@ -1,0 +1,11 @@
+{% extends "easypays/base.html" %}
+
+{% block content %}
+    <ul>
+        {% for topic in topics %}
+        <li>{{ topic }}</li>
+        {% empty %}
+            <li><h2>Não há topicos adicionados.</h2></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
