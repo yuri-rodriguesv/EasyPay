@@ -1,13 +1,41 @@
-<p>
-    <a href="{% url 'index' %}">Easypay</a> - 
-    <a href="{% url 'topics' %}">Tópicos</a>
-    {% if user.is_authenticated %}
-        Olá, {{ user.username }}
-        <a href="{% url 'logout' %}">Sair</a>
-    {% else %}
-        <a href="{% url 'register' %}">Registrar</a>
-        <a href="{% url 'login' %}">Entrar</a>
-    {% endif %}
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Easypay</title>
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
 
-</p>
+    <body>
+        <nav>
+            <div>
+                <div>
+                    <button>
+        
+                    </button>
+                    <a href="{% url 'index' %}">Easypay</a>
+                </div>
+                <div>
+                    <ul>
+                        <a href="{% url 'topics' %}">Tópicos</a>
+                    </ul>
+                    
+                    <ul>
+                        {% if user.is_authenticated %}
+                            Olá, {{ user.username }}
+                            <li><a href="{% url 'logout' %}">Sair</a></li>
+                        {% else %}
+                            <li><a href="{% url 'register' %}">Registrar</a></li>
+                            <li><a href="{% url 'login' %}">Entrar</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </body>
+    </html>
+   
 {% block content%}{% endblock content %}
