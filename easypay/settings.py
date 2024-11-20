@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'easypays',
     'users',
-    "bootstrap5",
+    "bootstrap3",
 ]
 
 MIDDLEWARE = [
@@ -129,6 +129,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/users/login'
 
-BOOTSTRAP5 = {
+BOOTSTRAP3 = {
     'include_jquery': True,
 }
