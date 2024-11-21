@@ -1,4 +1,13 @@
 {% extends "easypays/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+    <div class="jumbotron">
+        <h1>Acompanhem seu aprendizado</h1>
+    </div>
+{% endblock header %}
 {% block content%}
-    <p>Essa aplicação é legal</p>
+    <h2>
+        <a href="{% url 'register' %}">Crie uma conta para utilizar o EasyPay e liste os tópicos que você está aprendendo.</a>
+    </h2>
 {% endblock content %}

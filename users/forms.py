@@ -1,7 +1,13 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=100)
-    password = forms.CharField(max_length=30,widget=forms.PasswordInput)
-
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+        labels = {
+            'username': 'Nome de Usuário',
+            'email': 'Email',
+            'password': 'Senha'
+        }
