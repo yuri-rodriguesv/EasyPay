@@ -1,0 +1,90 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Principal */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Caixa de Registro */
+.register-box {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+.register-box h1 {
+    color: #ffa500;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.register-box p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Formulário */
+.register-form input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.register-form button {
+    background-color: #ffa500;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.register-form button:hover {
+    background-color: #e59400;
+}
+
+/* Links Extras */
+.extra-options {
+    margin-top: 20px;
+}
+
+.extra-options a {
+    color: #ffa500;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.extra-options a:hover {
+    color: #e59400;
+}

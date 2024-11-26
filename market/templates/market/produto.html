@@ -1,0 +1,20 @@
+{% extends "market/base.html" %}
+
+{% block content %}
+<form action="{% url 'produto' produto.id %}" method="post" class="register-form" enctype="multipart/form-data">
+    <p>Produtos: {{ produto.nome }}</p>
+    <ul>
+        <li>
+            <p>{{ produto.date_added}}</p>
+            <p>{{ produto.quantidade}}</p>
+            <p>{{ produto.descricao}}</p>
+            {% if produto.imagem %}
+                    <p><img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" style="max-width: 300px; height: auto;"></p>
+                {% else %}
+                    <p>Sem imagem disponível.</p>
+                {% endif %}
+            <a href= "{% url 'produtos' %}" class="btn btn-info btn-sm">Voltar</a>
+        </li>
+    </ul>
+</form>
+{% endblock content %}

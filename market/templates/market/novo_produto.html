@@ -1,0 +1,10 @@
+{% extends "market/base.html" %}
+
+{% block content %}
+    <p>Adicione um novo produto:</p>
+    <form action="{% url 'novo_produto' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Adicionar</button>
+    </form>
+{% endblock content %}

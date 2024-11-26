@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="{% static 'css/register-styles.css' %}">
+</head> 
+<body>
+    <div class="register-container">
+        <div class="register-box">
+            <h1>Crie sua Conta</h1>
+            <p>Preencha as informações abaixo</p>
+            <form action="{% url 'registro' %}" method="post" class="register-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <!--<input type="text" name="name" placeholder="Nome Completo" required>
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <input type="password" name="confirm-password" placeholder="Confirme sua Senha" required>-->
+                <button type="submit">Cadastrar</button>
+            </form>
+            <div class="extra-options">
+                <a href="{% url 'login' %}">Já tem uma conta? Faça login</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

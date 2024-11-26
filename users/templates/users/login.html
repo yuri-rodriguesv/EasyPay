@@ -1,17 +1,29 @@
-{% extends "easypays/base.html" %}
-{% load bootstrap3 %}
-
-{% block header %} 
-    <h2>Entre com sua conta de login.</h2>
-{% endblock header %}
-
-{% block content %}
-    <form action="{% url 'login' %}" method="post" class="form">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons %}
-            <button name="submit" class="btn btn-primary">Entrar</button>
-        {% endbuttons %}
-        <input type="hidden" name="next" value="{% url 'index' %}">
-    </form>
-{% endblock content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login-styles.css' %}">
+</head>
+    <body>
+        <div class="login-container">
+            <div class="login-box">
+                <h1>Bem-vindo!</h1>
+                <p>Faça login para continuar</p>
+                <form action="{% url 'login' %}" method="post" class="login-form" onsubmit="return handleLogin(event)">
+                    {% csrf_token %}
+                    <input type="text" id="username" name="username" placeholder="Nome Usuário" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="password" name="password" placeholder="Senha" required>
+                    <button type="submit">Entrar</button>
+                </form>
+                <div class="extra-options">
+                    <a href="#">Esqueceu sua senha?</a>
+                    <a href="{% url 'registro' %}">Criar uma conta</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
