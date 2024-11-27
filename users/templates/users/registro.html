@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Conta</title>
+    <link rel="icon" href="{% static 'images/icon-2.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/register-styles.css' %}">
 </head> 
 <body>
@@ -14,11 +15,12 @@
             <p>Preencha as informações abaixo</p>
             <form action="{% url 'registro' %}" method="post" class="register-form">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <!--<input type="text" name="name" placeholder="Nome Completo" required>
+                <input type="text" name="username" placeholder="Nome Completo" required>
                 <input type="email" name="email" placeholder="E-mail" required>
-                <input type="password" name="password" placeholder="Senha" required>
-                <input type="password" name="confirm-password" placeholder="Confirme sua Senha" required>-->
+                <input type="text" name="cpf" placeholder="CPF" required maxlength="11">
+                <input type="text" name="celular" placeholder="Celular" required maxlength="11">
+                <input type="password" name="password1" placeholder="Senha" required> <!-- Altere para password1 -->
+                <input type="password" name="password2" placeholder="Confirme sua Senha" required> <!-- Altere para password2 -->
                 <button type="submit">Cadastrar</button>
             </form>
             <div class="extra-options">

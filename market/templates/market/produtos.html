@@ -10,6 +10,8 @@
                 <th>Nome</th>
                 <th>Quantidade</th>
                 <th>Descrição</th>
+                <th>Tag</th>
+                <th>Preço</th>
                 <th>Imagem</th>
                 <th>Ações</th>
             </tr>
@@ -21,6 +23,8 @@
                 <td>{{ produto.nome }}</td>
                 <td>{{ produto.quantidade }}</td>
                 <td>{{ produto.descricao }}</td>
+                <td>{{ produto.tag }}</td>
+                <td>{{ produto.preco }}</td>
                 <td>
                     {% if produto.imagem %}
                         <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" style="max-width: 100px; height: auto;">

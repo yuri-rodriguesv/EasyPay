@@ -1,13 +1,28 @@
 {% load bootstrap3 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/icon-2.png' %}" type="image/x-icon">
     <title>Easypay</title>
     {% bootstrap_css %}
     {% bootstrap_javascript %}
+    <style>
+        .navbar-static-top {
+            background-color: #343a40 !important;
+        }
+        
+        .navbar-default .navbar-nav > li > a {
+            color: #fff !important; /* Cor dos links */
+        }
+
+        .navbar-default .navbar-brand {
+            color: #fff !important; /* Cor do nome da marca */
+        }
+    </style>
 </head>
     <body>
         <nav class="navbar navbar-default navbar-static-top">

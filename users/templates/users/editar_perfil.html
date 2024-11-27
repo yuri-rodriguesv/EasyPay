@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/icon-2.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/editar-perfil-styles.css' %}">
+    <title>EasyPay</title>
+    <script>
+        function toggleEdit(attribute) {
+            var displayElement = document.getElementById(attribute + '-display');
+            var inputElement = document.getElementById(attribute + '-input');
+            
+            if (inputElement.style.display === 'none' || inputElement.style.display === '') {
+                displayElement.style.display = 'none';
+                inputElement.style.display = 'inline-block';
+            } else {
+                displayElement.style.display = 'inline-block';
+                inputElement.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <div class="menu-icon">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'images/icon-2.png' %}" alt="icone">
+                </a>
+            </div>
+            <div class="settings-icon">⚙️</div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <section class="register-container">
+                <div class="register-box">
+                    <h1>Editar Perfil</h1>
+                    <p>Preencha as informações abaixo</p>
+                    <!-- Exibe a mensagem de sucesso ou erro -->
+                    {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                <div class="message {{ message.tags }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <form action="{% url 'editar_perfil' %}" method="post" class="register-form">
+                        {% csrf_token %}
+                        
+                        <!-- Exibir o Nome de Usuário -->
+                        <div>
+                            <p>Nome do Usuário: <span id="username-display">{{ usuario.username }}</span></p>
+                            <input type="text" name="username" id="username-input" class="edit-input" value="{{ usuario.username }}" required>
+                            <button type="button" class="edit-btn" onclick="toggleEdit('username')">Editar</button>
+                        </div>
+
+                        <!-- Exibir o E-mail -->
+                        <div>
+                            <p>E-mail: <span id="email-display">{{ usuario.email }}</span></p>
+                            <input type="email" name="email" id="email-input" class="edit-input" value="{{ usuario.email }}" required>
+                            <button type="button" class="edit-btn" onclick="toggleEdit('email')">Editar</button>
+                        </div>
+
+                        <!-- Exibir o Celular -->
+                        <div>
+                            <p>Celular: <span id="celular-display">{{ usuario.celular }}</span></p>
+                            <input type="text" name="celular" id="celular-input" class="edit-input" value="{{ usuario.celular }}" required>
+                            <button type="button" class="edit-btn" onclick="toggleEdit('celular')">Editar</button>
+                        </div>
+
+                        <button type="submit">Salvar</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    
+</body>
+</html>
